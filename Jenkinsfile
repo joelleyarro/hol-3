@@ -5,11 +5,7 @@ pipeline {
     }
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello worl'
-            }
-        }
+        
     stage('build') {
             steps {
                 echo 'Hello build'
@@ -18,14 +14,19 @@ pipeline {
                 sh 'mvn package'
             }
         }
-    stage('deploy') {
-            steps {
-                echo 'Hello deploy'
-            }
-        }
     stage('test') {
             steps {
-                echo 'Hello test'
+                echo 'mvn test'
+            }
+        }
+    stage('build and publish image') {
+            steps {
+                script {
+                  checkout scm
+                  docker. withResgistery('', 'dockerUserID') {
+                  def customImage = docker. docker.build("joelleyarro/hol-pipeline:${env.BUILD_ID}")
+                  customImage.push()
+      
             }
         }
     }
