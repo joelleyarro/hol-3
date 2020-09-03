@@ -24,7 +24,7 @@ pipeline {
                 script {
                   checkout scm
                   docker. withResgistery('', 'DockerRgisteryID') {
-                  def customImage = docker. docker.build("joelleyarro/hol-pipeline:${env.BUILD_ID}")
+                  def customImage = docker. docker.build("serge2001/hol-pipeline:${env.BUILD_ID}")
                   customImage.push()
       
             }
