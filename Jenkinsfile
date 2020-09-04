@@ -27,7 +27,9 @@ pipeline {
                  def customImage = docker.docker.build("joelleyarro/holiday-pipeline:${env.BUILD_ID}")
                  customImage.push()   
             }
-        }
-    } 
+        } 
+            }
+    }
+            }
+      }
 }
-    
