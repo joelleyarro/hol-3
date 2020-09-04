@@ -23,9 +23,11 @@ pipeline {
                  checkout scm
                  docker. withResgistery('', 'DockerRgisteryID') {
                  def customImage = docker.docker.build("joelleyarro/holliday-pipeline:${env.BUILD_ID}")
-                 customImage.push()   
+                 customImage.push()  
+                     }
+                 }
             }
         } 
     }       
 }
-    }   
+      
