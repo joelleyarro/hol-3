@@ -3,10 +3,8 @@ pipeline {
     tools {
         maven 'M2_HOME'
     }
-
     stages {
-        
-    stage('build') {
+         stage('build') {
             steps {
                 echo 'Hello build'
                 sh 'mvn clean'
@@ -24,13 +22,10 @@ pipeline {
               script {
                  checkout scm
                  docker. withResgistery('', 'DockerRgisteryID') {
-                 def customImage = docker.docker. build("joelleyarro/holliday-pipeline:${env.BUILD_ID}")
+                 def customImage = docker.docker.build("joelleyarro/holliday-pipeline:${env.BUILD_ID}")
                  customImage.push()   
             }
         } 
-            }
-    }
-            }
-      }
+    }       
 }
-      }  
+    }   
