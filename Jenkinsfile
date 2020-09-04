@@ -22,7 +22,7 @@ pipeline {
     stage('build and publish image') {
             steps {
                 script {
-                  checkou scm
+                  checkout scm
                   docker. withResgistery('', 'DockerRgisteryID') {
                   def customImage = docker.docker. build("joelleyarro/holliday-pipeline:${env.BUILD_ID}")
                   customImage.push()
