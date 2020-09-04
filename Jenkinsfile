@@ -21,12 +21,11 @@ pipeline {
         }
     stage('build and publish image') {
             steps {
-                script {
-                  checkout scm
-                  docker. withResgistery('', 'DockerRgisteryID') {
-                  def customImage = docker.docker. build("joelleyarro/holiday-pipeline:${env.BUILD_ID}")
-                  customImage.push()
-      
+              script {
+                 checkout scm
+                 docker. withResgistery('', 'DockerRgisteryID') {
+                 def customImage = docker.docker. build("joelleyarro/holiday-pipeline:${env.BUILD_ID}")
+                 customImage.push()   
             }
         }
     }
