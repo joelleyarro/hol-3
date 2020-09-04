@@ -1,4 +1,5 @@
 pipeline {
+    echo 'Hello World'
     agent any
     tools {
         maven 'M2_HOME'
@@ -22,7 +23,7 @@ pipeline {
     stage('build and publish image') {
             steps {
                 script {
-                  checkout scm
+                  checkout scmcheckou scm
                   docker. withResgistery('', 'DockerRgisteryID') {
                   def customImage = docker.docker. build("joelleyarro/holliday-pipeline:${env.BUILD_ID}")
                   customImage.push()
